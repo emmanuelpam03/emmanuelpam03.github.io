@@ -23,6 +23,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Montserrat", sans-serif;
         background-color: var(--light);
@@ -54,6 +58,16 @@
         background: url("csu idk nakalimot ko.jpg") center/cover no-repeat;
         opacity: 0.2;
         z-index: 0;
+        animation: slowZoom 20s ease-in-out infinite alternate;
+      }
+
+      @keyframes slowZoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
       }
 
       .hero-content {
@@ -80,33 +94,95 @@
       .heart {
         color: var(--accent);
         font-size: 3rem;
-        animation: pulse 1.5s infinite;
+        animation: pulse 1.5s infinite, float 3s ease-in-out infinite;
         display: inline-block;
         margin: 20px 0;
       }
 
-      .btn {
-        display: inline-block;
-        background: white;
-        color: var(--dark);
-        padding: 15px 30px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: var(--transition);
-        box-shadow: var(--shadow);
-        animation: fadeIn 1s 1s both;
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
       }
 
-      .btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        background: var(--light);
+      @keyframes floatHeart {
+        0% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.7;
+        }
+        90% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .chevron-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s 1s both, bounce 2s infinite 2s;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .chevron-down {
+        font-size: 1.5rem;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .chevron-btn:hover {
+        transform: translateY(10px) scale(1.1);
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .chevron-btn:hover .chevron-down {
+        transform: translateY(5px);
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
       }
 
       section {
         padding: 80px 20px;
         text-align: center;
+        position: relative;
+      }
+
+      section:not(:last-child) {
+        margin-bottom: 0;
       }
 
       .container {
@@ -119,6 +195,14 @@
         font-size: 3rem;
         margin-bottom: 40px;
         color: var(--dark);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
+
+      h2.animate {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .photo-gallery {
@@ -140,6 +224,10 @@
 
       .photo-gallery img:hover {
         transform: scale(1.05);
+      }
+
+      .timeline-section {
+        background: white;
       }
 
       .timeline {
@@ -165,6 +253,14 @@
         position: relative;
         width: 50%;
         box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .timeline-item.animate {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .timeline-item:nth-child(odd) {
@@ -187,6 +283,12 @@
         border-radius: 50%;
         top: 15px;
         z-index: 1;
+        transition: all 0.3s ease;
+      }
+
+      .timeline-item:hover::after {
+        transform: scale(1.3);
+        box-shadow: 0 0 15px var(--primary);
       }
 
       .timeline-item:nth-child(odd)::after {
@@ -202,6 +304,12 @@
         background: white;
         border-radius: 10px;
         box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
 
       .timeline-date {
@@ -229,43 +337,160 @@
         border-radius: 10px;
         width: 250px;
         box-shadow: var(--shadow);
-        transition: var(--transition);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         cursor: pointer;
         transform-style: preserve-3d;
         transform: perspective(500px) rotateY(20deg);
+        opacity: 0;
+      }
+
+      .note-card.animate {
+        opacity: 1;
+        transform: perspective(500px) rotateY(0deg);
       }
 
       .note-card:hover {
-        transform: perspective(500px) rotateY(0deg) scale(1.05);
+        transform: perspective(500px) rotateY(0deg) scale(1.1) translateY(-10px);
         background: white;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
       }
 
-      .music-player {
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .fixed-music-player {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 1000;
       }
 
       .player-btn {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
-        background: var(--primary);
+        background: linear-gradient(135deg, var(--primary), var(--accent));
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2rem;
+        font-size: 2.5rem;
         cursor: pointer;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(255, 46, 99, 0.4);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+        overflow: hidden;
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+
+      .player-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          transparent 70%
+        );
+        animation: rotate-shine 3s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .player-btn:hover::before {
+        opacity: 1;
       }
 
       .player-btn:hover {
-        transform: scale(1.1);
-        background: var(--accent);
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 12px 30px rgba(255, 46, 99, 0.6);
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+      }
+
+      .player-btn:active {
+        transform: scale(1.05) rotate(-5deg);
+      }
+
+      .player-btn.playing {
+        animation: pulse-glow 1.5s ease-in-out infinite,
+          rotate-button 10s linear infinite;
+      }
+
+      .player-btn.playing::after {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        animation: ripple 1.5s ease-out infinite;
+      }
+
+      .play-icon,
+      .pause-icon {
+        position: absolute;
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+
+      .play-icon {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      .pause-icon {
+        opacity: 0;
+        transform: scale(0) rotate(180deg);
+      }
+
+      .player-btn.playing .play-icon {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+      }
+
+      .player-btn.playing .pause-icon {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 8px 20px rgba(255, 46, 99, 0.4);
+        }
+        50% {
+          box-shadow: 0 8px 30px rgba(255, 46, 99, 0.7),
+            0 0 40px rgba(255, 46, 99, 0.3);
+        }
+      }
+
+      @keyframes rotate-shine {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes rotate-button {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0.8);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.3);
+          opacity: 0;
+        }
       }
 
       footer {
@@ -273,6 +498,12 @@
         color: white;
         text-align: center;
         padding: 20px;
+        opacity: 1;
+      }
+
+      footer p {
+        margin: 5px 0;
+        color: white;
       }
 
       @keyframes pulse {
@@ -353,6 +584,14 @@
           font-size: 1.2rem;
         }
 
+        section {
+          padding: 60px 20px;
+        }
+
+        h2 {
+          font-size: 2.5rem;
+        }
+
         .timeline::before {
           left: 25px;
         }
@@ -381,6 +620,16 @@
           right: auto;
           left: 15px;
         }
+
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 15px;
+        }
+
+        .note-card {
+          width: 100%;
+          max-width: 300px;
+        }
       }
     </style>
   </head>
@@ -396,10 +645,13 @@
           you in every way possible.
         </p>
         <p>Scroll down to see all the reasons why you're so special to me.</p>
-        <a href="#memories" class="btn">Our Memories</a>
+        <a href="#memories" class="chevron-btn">
+          <span class="chevron-down">▼</span>
+        </a>
       </div>
     </div>
 
+    <!-- Photos Section - Commented Out
     <section id="photos">
       <div class="container">
         <h2>Our Beautiful Moments</h2>
@@ -419,6 +671,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <section id="memories" class="timeline-section">
       <div class="container">
@@ -524,23 +777,21 @@
       </div>
     </section>
 
-    <section id="music">
-      <div class="container">
-        <h2>For Your Special Day</h2>
-        <p>A song to celebrate you</p>
-        <div class="music-player">
-          <div class="player-btn" id="play-btn">▶</div>
-          <audio id="birthday-song" loop autoplay>
-            <source src="Justin-Timberlake-Mirrors.mp3" type="audio/mpeg" />
-          </audio>
-        </div>
-      </div>
-    </section>
-
     <footer>
       <p>Made with ❤ for the most wonderful girlfriend in the world</p>
       <p>Happy Birthday! I love you more than words can say.</p>
     </footer>
+
+    <!-- Fixed Music Player Button -->
+    <div class="fixed-music-player">
+      <div class="player-btn" id="play-btn">
+        <span class="play-icon">▶</span>
+        <span class="pause-icon">❚❚</span>
+      </div>
+      <audio id="birthday-song" loop muted preload="auto">
+        <source src="Justin-Timberlake-Mirrors.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
 
     <script>
       // Confetti effect
@@ -561,43 +812,152 @@
         }
       }
 
+      // Floating hearts in hero section
+      function createFloatingHearts() {
+        const hero = document.querySelector(".hero");
+        const hearts = ["❤", "💕", "💖", "💗", "💝"];
+
+        for (let i = 0; i < 15; i++) {
+          const heart = document.createElement("div");
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.position = "absolute";
+          heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.top = `${Math.random() * 100}%`;
+          heart.style.opacity = Math.random() * 0.5 + 0.3;
+          heart.style.animation = `floatHeart ${
+            Math.random() * 10 + 15
+          }s infinite ease-in-out`;
+          heart.style.animationDelay = `${Math.random() * 5}s`;
+          heart.style.pointerEvents = "none";
+          hero.appendChild(heart);
+        }
+      }
+
       // Music player functionality
       const playBtn = document.getElementById("play-btn");
       const audio = document.getElementById("birthday-song");
       let isPlaying = false;
 
+      // Start audio muted (browsers allow muted autoplay), then unmute
+      function startAutoplay() {
+        // Start with muted audio - browsers allow this
+        audio.muted = true;
+        audio.volume = 0.7;
+
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              // Successfully started playing (muted)
+              isPlaying = true;
+              playBtn.classList.add("playing");
+
+              // Unmute after a short delay to ensure playback started
+              setTimeout(() => {
+                audio.muted = false;
+              }, 100);
+            })
+            .catch((error) => {
+              // If even muted autoplay fails, try unmuted
+              audio.muted = false;
+              audio
+                .play()
+                .then(() => {
+                  isPlaying = true;
+                  playBtn.classList.add("playing");
+                })
+                .catch(() => {
+                  isPlaying = false;
+                  playBtn.classList.remove("playing");
+                });
+            });
+        }
+      }
+
+      // Start playing as soon as possible
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startAutoplay);
+      } else {
+        startAutoplay();
+      }
+
+      // Also try on window load
+      window.addEventListener("load", startAutoplay);
+
+      // Update button state based on audio events
+      audio.addEventListener("play", function () {
+        isPlaying = true;
+        playBtn.classList.add("playing");
+      });
+
+      audio.addEventListener("pause", function () {
+        isPlaying = false;
+        playBtn.classList.remove("playing");
+      });
+
       playBtn.addEventListener("click", function () {
         if (isPlaying) {
           audio.pause();
-          playBtn.textContent = "▶";
-          isPlaying = false;
         } else {
           audio.play();
-          playBtn.textContent = "❚❚";
-          isPlaying = true;
         }
       });
 
-      // Animate cards on scroll
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Observe h2 headings
+      document.querySelectorAll("h2").forEach((heading) => {
+        observer.observe(heading);
+      });
+
+      // Observe timeline items
+      document.querySelectorAll(".timeline-item").forEach((item) => {
+        observer.observe(item);
+      });
+
+      // Animate note cards on scroll with stagger effect
       const noteCards = document.querySelectorAll(".note-card");
 
-      function checkCards() {
-        noteCards.forEach((card) => {
+      function animateCards() {
+        noteCards.forEach((card, index) => {
           const cardTop = card.getBoundingClientRect().top;
           const windowHeight = window.innerHeight;
 
           if (cardTop < windowHeight - 100) {
-            card.style.opacity = "1";
-            card.style.transform = "perspective(500px) rotateY(0deg)";
+            setTimeout(() => {
+              card.classList.add("animate");
+            }, index * 100);
           }
         });
       }
 
-      window.addEventListener("scroll", checkCards);
-      window.addEventListener("load", checkCards);
+      window.addEventListener("scroll", animateCards);
+      window.addEventListener("load", animateCards);
 
-      // Initialize confetti
-      window.addEventListener("load", createConfetti);
+      // Initialize confetti and floating hearts
+      window.addEventListener("load", function () {
+        createConfetti();
+        createFloatingHearts();
+      });
     </script>
   </body>
 </html>
