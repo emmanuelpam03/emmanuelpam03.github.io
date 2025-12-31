@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday My Love ❤️</title>
+    <title>Happy Birthday, Dear Person ❤️</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
@@ -780,26 +780,17 @@
 
       .play-icon,
       .pause-icon {
-        position: absolute;
-        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        margin: 0 6px;
+        transition: all 0.2s ease;
         z-index: 1;
-      }
-
-      .play-icon {
         opacity: 1;
         transform: scale(1) rotate(0deg);
       }
 
-      .pause-icon {
-        opacity: 0;
-        transform: scale(0) rotate(180deg);
-      }
-
-      .player-btn.playing .play-icon {
-        opacity: 0;
-        transform: scale(0) rotate(-180deg);
-      }
-
+      /* Keep both icons visible at all times per user request */
+      .player-btn.playing .play-icon,
       .player-btn.playing .pause-icon {
         opacity: 1;
         transform: scale(1) rotate(0deg);
@@ -1168,14 +1159,14 @@
   <body>
     <div class="hero">
       <div class="hero-content">
-        <h1>Happy Birthday, Love!</h1>
+        <h1>Happy Birthday!</h1>
         <div class="heart">❤</div>
         <p>
-          To the most amazing girlfriend in the world. My heart still chooses
-          you — every single time. Today is your day, and i want to celebrate
-          you in every way possible.
+          To the most amazing person who means so much to me. My heart still cares for
+          you — always. Today is your day, and I hope it's filled with joy and
+          wonderful surprises.
         </p>
-        <p>Scroll down to see all the reasons why you're so special to me.</p>
+        <p>Scroll down to see moments and notes I cherish.</p>
         <a href="#memories" class="chevron-btn">
           <span class="chevron-down">▼</span>
         </a>
@@ -1206,58 +1197,60 @@
 
     <section id="memories" class="timeline-section">
       <div class="container">
-        <h2>Our Journey Together</h2>
+        <h2>Moments That Matter</h2>
+        <p class="section-intro" style="max-width:700px;margin:0 auto 20px;opacity:0.95;">A few small moments, gestures, and laughs that have stayed with me — snapshots I often look back on with a smile.</p>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-date">Our Endless Talks</div>
+              <div class="timeline-date">Your Laughter</div>
               <p>
-                Those days when we talked from morning ‘til the sun disappeared
-                — no rush, no pressure, just you and me, sharing everything and
-                nothing. Time always flew when it was with you. That’s when i
-                knew i never wanted the conversations — or you — to end.
+                The way your laugh lights up a room — it turned ordinary days into
+                moments I replay when I need a smile. It's one of those things I
+                never take for granted.
               </p>
             </div>
           </div>
+
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-date">When We First Met</div>
+              <div class="timeline-date">Kind Gestures</div>
               <p>
-                We were both so shy — but the moment I rested my head on your
-                shoulder and held your hand for the first time, everything felt
-                right. Like I was exactly where I was meant to be.
+                The small things you do — sharing, listening, showing up — these
+                quiet acts have meant the world and showed the depth of your care.
               </p>
             </div>
           </div>
+
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-date">Our Dates</div>
+              <div class="timeline-date">Silly Adventures</div>
               <p>
-                I used to note down every date we went on — just so i’d never
-                forget. I haven’t updated it in a while... But every moment is
-                still safe in my heart.
+                Those spontaneous, silly outings where we laughed until our sides
+                hurt—they're proof that the best memories often come from the
+                simplest moments.
               </p>
             </div>
           </div>
+
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-date">Someday, Our First Adventure</div>
+              <div class="timeline-date">Patient Conversations</div>
               <p>
-                We haven’t gone far yet — but i already know that wherever we
-                go, as long as it’s with you, it’s going to be unforgettable.
+                The times we talked and listened without rush taught me a lot about
+                caring and understanding. They left a lasting impression.
               </p>
             </div>
           </div>
+
           <div class="timeline-item">
             <div class="timeline-content">
-              <div class="timeline-date">Today</div>
+              <div class="timeline-date">New Beginnings</div>
               <p>
-                Celebrating your 20th — your first step into a new chapter.
-                You’re no longer a teen, but still the same beautiful soul i
-                fell in love with. And as you continue to grow, i’ll be right
-                here, loving you more with every step you take.
+                This birthday marks a new beginning—full of possibility and growth.
+                I'm excited to see all the stories you'll write next.
               </p>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -1265,44 +1258,27 @@
 
     <section class="love-notes">
       <div class="container">
-        <h2>Reasons Why I Love You</h2>
+        <h2>Things I'm Grateful For</h2>
         <div class="notes-container">
           <div class="note-card">
-            <h3>Your Cute Cheeks</h3>
-            <p>They’re so soft and cute, i just want to squish them forever.</p>
+            <h3>Your Kindness</h3>
+            <p>You always notice the little things and put others first — it inspires me every day.</p>
           </div>
           <div class="note-card">
-            <h3>Your Caring Heart</h3>
-            <p>
-              The way you always put others first and notice the little things —
-              that’s something truly rare and beautiful.
-            </p>
+            <h3>Your Support</h3>
+            <p>Your support, honesty, and the times you've been there mean more than words can say.</p>
           </div>
           <div class="note-card">
-            <h3>Your Bright Mind</h3>
-            <p>
-              You’re not just smart — you’re deeply intelligent in a way that’s
-              graceful and quietly powerful. Your thoughts, your words, your
-              insight — they amaze me every time. Being with you inspires me to
-              think deeper and love better.
-            </p>
+            <h3>Your Curiosity</h3>
+            <p>Your eagerness to learn and explore makes every moment with you an adventure.</p>
           </div>
           <div class="note-card">
-            <h3>Your Sweet Smile</h3>
-            <p>
-              It’s still my favorite view — even if you don’t always smile when
-              we’re together. Just knowing that smile exists, and that I’ve seen
-              it, is more than enough to brighten my days.
-            </p>
+            <h3>Your Laughter</h3>
+            <p>Your laugh brightens the room and turns ordinary days into cherished memories.</p>
           </div>
           <div class="note-card">
             <h3>Your Generosity</h3>
-            <p>
-              You give without expecting anything in return. The way you care
-              for your family — like giving your parents a phone just to make
-              life easier for them — shows just how big and selfless your heart
-              really is.
-            </p>
+            <p>The way you give your time and care so freely shows how big your heart is.</p>
           </div>
         </div>
       </div>
@@ -1311,7 +1287,7 @@
     <section class="birthday-message">
       <div class="container">
         <div class="birthday-message-content">
-          <h2>Happy 20th Birthday, My Love! 🎉</h2>
+          <h2>Happy 18th Birthday! 🎉</h2>
           <div class="birthday-message-text">
             <p>
               Today marks a special milestone — you're turning 20! As you step
@@ -1320,11 +1296,11 @@
               becoming.
             </p>
             <p>
-              You've grown so much, yet you've stayed true to the beautiful soul
-              I fell in love with. Your kindness, your intelligence, your
+              You've grown so much, yet you've stayed true to the beautiful person
+              I care about deeply. Your kindness, your intelligence, your
               strength — they all shine brighter with each passing day. And as
               you continue to grow and explore this world, I'll be here,
-              cheering you on, supporting you, and loving you through every step
+              cheering you on, supporting you, and caring for you through every step
               of the way.
             </p>
             <p>
@@ -1345,14 +1321,11 @@
     </section>
 
     <footer>
-      <p>Made with ❤ for the most wonderful girlfriend in the world</p>
-      <p>Happy Birthday! I love you more than words can say.</p>
-    </footer>
-
+      <p>Made with ❤ for the most amazing person who means so much to me</p>
+      <p>Happy Birthday! Wishing you a day full of joy and wonderful memories.</p>
     <!-- Fixed Music Player Button -->
     <div class="fixed-music-player">
-      <div class="player-btn" id="play-btn">
-        <span class="play-icon">▶</span>
+      <div class="player-btn" id="play-btn" title="Click to play/pause music (autoplay may be blocked by your browser)" aria-label="Play or pause birthday music">
         <span class="pause-icon">❚❚</span>
       </div>
       <audio id="birthday-song" loop autoplay preload="auto">
@@ -1404,99 +1377,86 @@
       // Music player functionality
       const playBtn = document.getElementById("play-btn");
       const audio = document.getElementById("birthday-song");
-      let isPlaying = false;
 
-      // Autoplay function - starts muted (browsers allow this), then unmutes
-      function startAutoplay() {
-        // Set volume first
-        audio.volume = 0.7;
+      // Initialize audio settings
+      audio.volume = 0.7;
+      audio.preload = "auto";
+      audio.muted = false; // per user request, try to play unmuted immediately
 
-        // Start muted - browsers allow muted autoplay
-        audio.muted = true;
+      // Aggressively attempt unmuted autoplay with retries and event-based fallbacks
+      function attemptUnmutedAutoplay(maxAttempts = 20, initialDelay = 300) {
+        let attempts = 0;
+        let delay = initialDelay;
 
-        // Try to play
-        const playPromise = audio.play();
+        function tryPlay() {
+          if (attempts >= maxAttempts) return;
+          attempts++;
 
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              // Successfully started playing (muted)
-              isPlaying = true;
+          // Ensure unmuted
+          audio.muted = false;
+
+          const p = audio.play();
+          if (p && p.then) {
+            p.then(() => {
               playBtn.classList.add("playing");
-
-              // Unmute immediately after playback starts
-              setTimeout(() => {
-                audio.muted = false;
-              }, 50);
-            })
-            .catch((error) => {
-              // If muted autoplay fails, try again after a short delay
-              setTimeout(() => {
-                audio.muted = true;
-                audio
-                  .play()
-                  .then(() => {
-                    isPlaying = true;
-                    playBtn.classList.add("playing");
-                    setTimeout(() => {
-                      audio.muted = false;
-                    }, 50);
-                  })
-                  .catch(() => {
-                    // Last attempt - try one more time
-                    setTimeout(() => {
-                      audio.muted = true;
-                      audio
-                        .play()
-                        .then(() => {
-                          isPlaying = true;
-                          playBtn.classList.add("playing");
-                          setTimeout(() => {
-                            audio.muted = false;
-                          }, 50);
-                        })
-                        .catch(() => {
-                          isPlaying = false;
-                          playBtn.classList.remove("playing");
-                        });
-                    }, 300);
-                  });
-              }, 100);
+            }).catch(() => {
+              // schedule next attempt with backoff
+              setTimeout(tryPlay, delay);
+              delay = Math.min(2000, delay + 200);
             });
+          } else {
+            setTimeout(tryPlay, delay);
+            delay = Math.min(2000, delay + 200);
+          }
+        }
+
+        tryPlay();
+
+        // Also re-attempt when tab becomes visible or window gains focus
+        const onVisibility = () => {
+          if (!document.hidden) tryPlay();
+        };
+        window.addEventListener("focus", tryPlay);
+        document.addEventListener("visibilitychange", onVisibility);
+
+        // Stop listeners after attempts exhausted
+        setTimeout(() => {
+          window.removeEventListener("focus", tryPlay);
+          document.removeEventListener("visibilitychange", onVisibility);
+        }, maxAttempts * initialDelay + 3000);
+      }
+
+      // Start aggressive autoplay immediately
+      attemptUnmutedAutoplay();
+
+      audio.addEventListener("play", () => playBtn.classList.add("playing"));
+      audio.addEventListener("pause", () => playBtn.classList.remove("playing"));
+      audio.addEventListener("ended", () => playBtn.classList.remove("playing"));
+
+      // Accessible toggle for the player button (play/pause behaviour remains)
+      playBtn.setAttribute("role", "button");
+      playBtn.setAttribute("aria-pressed", "false");
+      playBtn.tabIndex = 0;
+
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            playBtn.setAttribute("aria-pressed", "true");
+          }).catch(() => {
+            // If playback is blocked, re-attempt autoplay aggressively
+            attemptUnmutedAutoplay();
+          });
+        } else {
+          audio.pause();
+          playBtn.setAttribute("aria-pressed", "false");
         }
       }
 
-      // Start playing as soon as script loads
-      startAutoplay();
-
-      // Also try when DOM is ready
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", startAutoplay);
-      } else {
-        startAutoplay();
-      }
-
-      // Also try on window load with a small delay
-      window.addEventListener("load", function () {
-        setTimeout(startAutoplay, 50);
-      });
-
-      // Update button state based on audio events
-      audio.addEventListener("play", function () {
-        isPlaying = true;
-        playBtn.classList.add("playing");
-      });
-
-      audio.addEventListener("pause", function () {
-        isPlaying = false;
-        playBtn.classList.remove("playing");
-      });
-
-      playBtn.addEventListener("click", function () {
-        if (isPlaying) {
-          audio.pause();
-        } else {
-          audio.play();
+      playBtn.addEventListener("click", togglePlay);
+      playBtn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          togglePlay();
         }
       });
 
